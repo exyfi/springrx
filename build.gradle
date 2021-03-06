@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //reorganize imports
+    compile "io.netty:netty-all:4.1.45.Final"
+    compile "org.mongodb:mongo-java-driver:3.12.3"
+    compile "org.mongodb:mongodb-driver-reactivestreams:1.13.1"
+    compile "org.mongodb:mongodb-driver:3.12.3"
+    compile "org.mongodb:bson:4.0.2"
+    compile "io.reactivex.rxjava2:rxjava:2.2.17"
+    compile "io.reactivex:rxnetty-http:0.5.3"
+    compile "io.reactivex:rxnetty-common:0.5.3"
+    compile "io.reactivex:rxjava-reactive-streams:1.2.1"
+    compile "org.springframework.boot:spring-boot-starter-webflux:2.2.5.RELEASE"
+    compile "org.springframework.boot:spring-boot-starter-data-mongodb:2.2.5.RELEASE"
+    compile "com.google.code.findbugs:jsr305:3.0.0"
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.13.3'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.3'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-log4j2
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2', version: '2.4.3'
+
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.16'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    // https://mvnrepository.com/artifact/org.mockito/mockito-core
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '3.8.0'
+    // https://mvnrepository.com/artifact/org.mockito/mockito-all
+    testImplementation group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
+
+    testCompile "org.springframework.boot:spring-boot-starter-test:2.2.5.RELEASE"
+    testCompile group: 'uk.co.jemos.podam', name: 'podam', version: '7.2.2.RELEASE'
+//Thanks for using https://jar-download.com
+
+}
+
+configurations {
+    all {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

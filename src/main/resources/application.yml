@@ -1,0 +1,14 @@
+mongo:
+  name: reactive
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/reactive
+      database: reactive
+  profiles: prod
+
+currency:
+  api:
+    url: http://data.fixer.io/api/convert
+    key: #provide here your api key
