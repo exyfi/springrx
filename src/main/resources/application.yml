@@ -14,3 +14,4 @@ currency:
   api:
     url: http://data.fixer.io/api/convert
     key: #provide here your api key
+    enabled: true
