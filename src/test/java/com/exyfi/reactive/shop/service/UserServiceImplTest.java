@@ -35,7 +35,7 @@ class UserServiceImplTest {
     @Mock
     UserRepository userRepository;
     @Mock
-    ProductRepository productRepository;
+    ProductService productService;
     @Mock
     CurrencyConverter currencyConverter;
     @InjectMocks
@@ -127,7 +127,7 @@ class UserServiceImplTest {
         User expected = podamFactory.manufacturePojo(User.class);
         Product expectedProduct = podamFactory.manufacturePojo(Product.class);
         when(userRepository.findById(expected.getId())).thenReturn(Mono.just(expected));
-        when(productRepository.findAll()).thenReturn(Flux.just(expectedProduct));
+        when(productService.getAllProducts()).thenReturn(Flux.just(expectedProduct));
         when(currencyConverter.convert(any(), any())).thenReturn(
                 Product.builder()
                         .id(expectedProduct.getId())

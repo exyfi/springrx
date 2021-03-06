@@ -39,6 +39,6 @@ class CurrencyConverterTest {
         Product convert = converter.convert(to, product);
 
         assertNotNull(convert);
-        assertEquals(product.getCurrency(), to);
+        assertEquals(convert.getCurrency(), to);
     }
 }

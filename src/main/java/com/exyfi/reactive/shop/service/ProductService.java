@@ -2,7 +2,10 @@ package com.exyfi.reactive.shop.service;
 
 import com.exyfi.reactive.shop.model.BaseResponse;
 import com.exyfi.reactive.shop.model.product.Product;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.Optional;
 
 /**
  * Service for operations with products.
@@ -31,4 +34,11 @@ public interface ProductService {
      * @return information of success
      */
     Mono<BaseResponse> deleteProduct(Long id);
+
+    /**
+     * Get list of all products.
+     *
+     * @return products
+     */
+    Flux<Product> getAllProducts();
 }

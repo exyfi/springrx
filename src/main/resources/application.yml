@@ -2,11 +2,13 @@ mongo:
   name: reactive
 
 spring:
+  application:
+    name: reactiveshop
+  profiles: prod
   data:
     mongodb:
       uri: mongodb://localhost:27017/reactive
       database: reactive
-  profiles: prod
 
 currency:
   api:

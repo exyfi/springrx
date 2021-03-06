@@ -1,7 +1,6 @@
 package com.exyfi.reactive.shop.service;
 
 import com.exyfi.reactive.shop.converter.CurrencyConverter;
-import com.exyfi.reactive.shop.dao.ProductRepository;
 import com.exyfi.reactive.shop.dao.UserRepository;
 import com.exyfi.reactive.shop.exception.UserNotFoundException;
 import com.exyfi.reactive.shop.model.BaseResponse;
@@ -22,7 +21,7 @@ import reactor.core.publisher.Mono;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-    private final ProductRepository productRepository;
+    private final ProductService productService;
     private final CurrencyConverter currencyConverter;
 
     public Mono<User> registerUser(User user) {
@@ -58,7 +57,7 @@ public class UserServiceImpl implements UserService {
 
     public Flux<Product> getProductsForUser(Long id) {
         return getUserById(id)
-                .flatMapMany(user -> productRepository.findAll()
+                .flatMapMany(user -> productService.getAllProducts()
                         .map(item -> currencyConverter.convert(user.getPreferredCurrency(), item)));
 
     }

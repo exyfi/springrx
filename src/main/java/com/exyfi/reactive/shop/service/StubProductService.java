@@ -6,6 +6,7 @@ import com.exyfi.reactive.shop.model.product.Product;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
@@ -39,6 +40,16 @@ public class StubProductService implements ProductService {
         log.warn("STUB operation delete product");
         return Mono.just(BaseResponse.builder()
                 .success(true)
+                .build());
+    }
+
+    @Override
+    public Flux<Product> getAllProducts() {
+        return Flux.just(Product.builder()
+                .id(1L)
+                .name("Reactive Design Patterns")
+                .currency(Currency.EUR)
+                .price(49)
                 .build());
     }
 }
