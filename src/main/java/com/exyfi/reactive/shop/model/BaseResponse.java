@@ -13,7 +13,12 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 public class BaseResponse {
-
+    /**
+     * Success status.
+     */
     private boolean success;
+    /**
+     * Error info.
+     */
     private Error error;
 }
