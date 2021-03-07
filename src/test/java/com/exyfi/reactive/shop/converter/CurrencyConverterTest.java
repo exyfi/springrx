@@ -21,7 +21,7 @@ class CurrencyConverterTest {
     PodamFactory podamFactory;
 
     @Mock
-    ConverterProviderIban provider;
+    ConverterProvider provider;
     @InjectMocks
     CurrencyConverter converter;
 

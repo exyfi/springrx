@@ -5,7 +5,6 @@ import com.exyfi.reactive.shop.model.Currency;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -18,7 +17,7 @@ import java.util.Objects;
 @Component
 @RequiredArgsConstructor
 @ConditionalOnProperty(value = "currency.api.enabled", havingValue = "true")
-public class ConverterProviderIban implements ConverterProvider {
+public class ConverterProviderFixer implements ConverterProvider {
 
     private static final String URL_PARAMETERS = "?access_key=%s&from=%s&to=%s&amount=%s";
 
@@ -29,7 +28,6 @@ public class ConverterProviderIban implements ConverterProvider {
 
     @Value("${currency.api.key}")
     private String apiKey;
-
 
     public double getConvertedPrice(Currency from, Currency to, double price) {
         final String formedRequest = String.format(URL_PARAMETERS, apiKey, from, to, price);
