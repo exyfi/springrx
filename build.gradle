@@ -10,19 +10,27 @@ repositories {
 }
 
 dependencies {
-    //reorganize imports
-    compile "io.netty:netty-all:4.1.45.Final"
-    compile "org.mongodb:mongo-java-driver:3.12.3"
-    compile "org.mongodb:mongodb-driver-reactivestreams:1.13.1"
-    compile "org.mongodb:mongodb-driver:3.12.3"
-    compile "org.mongodb:bson:4.0.2"
-    compile "io.reactivex.rxjava2:rxjava:2.2.17"
-    compile "io.reactivex:rxnetty-http:0.5.3"
-    compile "io.reactivex:rxnetty-common:0.5.3"
-    compile "io.reactivex:rxjava-reactive-streams:1.2.1"
-    compile "org.springframework.boot:spring-boot-starter-webflux:2.2.5.RELEASE"
-    compile "org.springframework.boot:spring-boot-starter-data-mongodb:2.2.5.RELEASE"
-    compile "com.google.code.findbugs:jsr305:3.0.0"
+    // https://mvnrepository.com/artifact/io.netty/netty-all
+    implementation group: 'io.netty', name: 'netty-all', version: '4.1.59.Final'
+    implementation "org.mongodb:mongo-java-driver:3.12.3"
+    implementation "org.mongodb:mongodb-driver-reactivestreams:1.13.1"
+    implementation "org.mongodb:mongodb-driver:3.12.3"
+    implementation group: 'org.mongodb', name: 'bson', version: '4.2.2'
+    // https://mvnrepository.com/artifact/io.reactivex.rxjava2/rxjava
+    implementation group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.2.21'
+    // https://mvnrepository.com/artifact/io.reactivex/rxnetty-http
+    implementation group: 'io.reactivex', name: 'rxnetty-http', version: '0.5.3'
+    // https://mvnrepository.com/artifact/io.reactivex/rxnetty-common
+    runtimeOnly group: 'io.reactivex', name: 'rxnetty-common', version: '0.5.3'
+    // https://mvnrepository.com/artifact/io.reactivex/rxjava-reactive-streams
+    implementation group: 'io.reactivex', name: 'rxjava-reactive-streams', version: '1.2.1'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-webflux
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-webflux', version: '2.4.3'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-mongodb
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version: '2.4.3'
+    // https://mvnrepository.com/artifact/com.google.code.findbugs/jsr305
+    implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
+
     compileOnly 'org.projectlombok:lombok:1.18.16'
     annotationProcessor 'org.projectlombok:lombok:1.18.16'
 
@@ -43,8 +51,6 @@ dependencies {
 
     testCompile "org.springframework.boot:spring-boot-starter-test:2.2.5.RELEASE"
     testCompile group: 'uk.co.jemos.podam', name: 'podam', version: '7.2.2.RELEASE'
-//Thanks for using https://jar-download.com
-
 }
 
 configurations {
